@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speak English in 30 Days 🌟</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF8EE;
+    --cream2: #FFF0D6;
+    --red: #C1121F;
+    --red-light: #E63946;
+    --red-pale: #FDECEA;
+    --green: #2D6A4F;
+    --green-mid: #52B788;
+    --green-light: #D8F3DC;
+    --gold: #F4A261;
+    --white: #FFFFFF;
+    --text: #1A1A2E;
+    --muted: #6B6B80;
+    --r1: #E63946; --r2: #F4A261; --r3: #F9C74F;
+    --r4: #90BE6D; --r5: #43AA8B; --r6: #4D908E; --r7: #577590;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ─────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 999;
+    background: var(--white);
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg,var(--r1),var(--r2),var(--r3),var(--r4),var(--r5),var(--r6),var(--r7)) 1;
+    padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 16px rgba(0,0,0,.08);
+    flex-wrap: wrap; gap: .5rem;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 900;
+    background: linear-gradient(135deg,var(--red),var(--green));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    padding: .8rem 0;
+  }
+  .nav-links { display:flex; flex-wrap:wrap; gap:.3rem; padding:.5rem 0; }
+  .nav-links a {
+    text-decoration:none; font-size:.75rem; font-weight:700;
+    padding:.3rem .65rem; border-radius:20px; color:var(--text);
+    transition: all .2s;
+  }
+  .nav-links a:hover { background:var(--cream2); color:var(--red); }
+
+  /* ── HERO ────────────────────────────── */
+  .hero {
+    min-height: 92vh;
+    background: linear-gradient(135deg, #FFF8EE 0%, #FFF0D6 40%, #D8F3DC 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 4rem 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(193,18,31,.07) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 30%, rgba(45,106,79,.07) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .rainbow-bar {
+    width: 180px; height: 6px; border-radius:3px;
+    background: linear-gradient(90deg,var(--r1),var(--r2),var(--r3),var(--r4),var(--r5),var(--r6),var(--r7));
+    margin: 1.2rem auto;
+  }
+  .hero h1 {
+    font-family:'Playfair Display',serif;
+    font-size: clamp(2.2rem,7vw,5rem);
+    font-weight:900; line-height:1.1;
+    color: var(--text);
+  }
+  .hero h1 span.red { color:var(--red); }
+  .hero h1 span.green { color:var(--green); }
+  .hero p { font-size:1.1rem; color:var(--muted); max-width:620px; margin:.8rem auto; line-height:1.7; }
+  .badge-row { display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; margin:1.5rem 0; }
+  .badge {
+    padding:.4rem 1rem; border-radius:30px; font-size:.78rem; font-weight:800;
+    letter-spacing:.5px; text-transform:uppercase;
+  }
+  .badge-b { background:var(--green-light); color:var(--green); }
+  .badge-p { background:#FFF3E0; color:#E65100; }
+  .badge-u { background: linear-gradient(135deg,#f72585,#7209b7); color:#fff; }
+  .scroll-down {
+    margin-top:2rem; font-size:.9rem; font-weight:700; color:var(--muted);
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+  /* ── SECTION WRAPPER ─────────────────── */
+  section { padding: 4rem 1.5rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .sec-title {
+    font-family:'Playfair Display',serif;
+    font-size: clamp(1.8rem,5vw,2.8rem);
+    font-weight:900; text-align:center; margin-bottom:.4rem;
+  }
+  .sec-sub { text-align:center; color:var(--muted); margin-bottom:2.5rem; font-size:1rem; }
+
+  /* ── LEVEL TABS ──────────────────────── */
+  #levels { background: linear-gradient(135deg,#FFF8EE,#FFF0D6); }
+  .level-tabs { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2rem; justify-content:center; }
+  .tab-btn {
+    padding:.7rem 2rem; border-radius:30px; border:none;
+    font-family:'Nunito',sans-serif; font-size:1rem; font-weight:800;
+    cursor:pointer; transition: all .25s; outline:none;
+  }
+  .tab-btn.beg { background:var(--green-light); color:var(--green); }
+  .tab-btn.pro { background:#FFF3E0; color:#E65100; }
+  .tab-btn.ultra { background:linear-gradient(135deg,#f72585,#7209b7); color:#fff; }
+  .tab-btn.active, .tab-btn:hover { transform:scale(1.06); box-shadow:0 4px 20px rgba(0,0,0,.15); }
+  .level-panel { display:none; }
+  .level-panel.active { display:block; animation:fadeIn .4s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .level-card {
+    background:var(--white); border-radius:20px;
+    padding:2rem; box-shadow:0 4px 24px rgba(0,0,0,.07);
+  }
+  .level-card h3 { font-size:1.4rem; margin-bottom:1rem; }
+  .day-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; margin-top:1rem; }
+  .day-item {
+    background:var(--cream); border-radius:12px; padding:1rem;
+    border-left:4px solid;
+  }
+  .beg-item { border-color:var(--green); }
+  .pro-item { border-color:#E65100; }
+  .ultra-item { border-color:#7209b7; }
+  .day-item strong { font-size:.85rem; display:block; margin-bottom:.3rem; }
+  .day-item span { font-size:.82rem; color:var(--muted); }
+
+  /* ── VOCABULARY ──────────────────────── */
+  #vocabulary { background: linear-gradient(135deg,#FFF0D6,#D8F3DC); }
+  .vocab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:.65rem; }
+  .vocab-word {
+    background:var(--white); border-radius:12px; padding:.7rem .9rem;
+    border-top:3px solid; font-size:.85rem; font-weight:700;
+    transition: transform .2s, box-shadow .2s;
+    cursor:default;
+  }
+  .vocab-word:hover { transform:translateY(-3px); box-shadow:0 6px 18px rgba(0,0,0,.1); }
+  .vocab-word small { display:block; font-weight:400; color:var(--muted); font-size:.75rem; margin-top:.2rem; }
+  .cat-title {
+    font-family:'Playfair Display',serif;
+    font-size:1.3rem; font-weight:700;
+    margin:2rem 0 .8rem; color:var(--text);
+    display:flex; align-items:center; gap:.5rem;
+  }
+  .cat-title::after { content:''; flex:1; height:2px; background:linear-gradient(90deg,currentColor,transparent); opacity:.2; }
+
+  /* ── IDIOMS ──────────────────────────── */
+  #idioms { background:var(--cream); }
+  .idiom-card {
+    background:var(--white); border-radius:16px; padding:1.2rem 1.5rem;
+    margin-bottom:1rem; display:flex; gap:1rem; align-items:flex-start;
+    border-left:5px solid var(--red); box-shadow:0 2px 12px rgba(0,0,0,.05);
+    transition:transform .2s;
+  }
+  .idiom-card:hover { transform:translateX(4px); }
+  .idiom-num {
+    font-family:'Fira Mono',monospace; font-size:.8rem;
+    background:var(--red-pale); color:var(--red);
+    padding:.2rem .6rem; border-radius:6px; font-weight:700; white-space:nowrap;
+  }
+  .idiom-card h4 { font-size:1rem; margin-bottom:.25rem; color:var(--red); }
+  .idiom-card p { font-size:.88rem; color:var(--muted); line-height:1.5; }
+  .idiom-card em { font-style:normal; color:var(--green); font-weight:700; }
+
+  /* ── PHRASES ─────────────────────────── */
+  #phrases { background:linear-gradient(135deg,#D8F3DC,#FFF8EE); }
+  .phrase-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1rem; }
+  .phrase-card {
+    background:var(--white); border-radius:16px; padding:1.2rem;
+    border-top:4px solid var(--green); box-shadow:0 2px 12px rgba(0,0,0,.05);
+  }
+  .phrase-card h4 { font-size:1rem; color:var(--green); margin-bottom:.3rem; }
+  .phrase-card p { font-size:.85rem; color:var(--muted); }
+  .phrase-card .example { font-size:.82rem; font-style:italic; color:var(--text); margin-top:.4rem; border-left:2px solid var(--green-mid); padding-left:.6rem; }
+
+  /* ── SYNONYMS & ANTONYMS ─────────────── */
+  #synonyms { background:var(--cream2); }
+  #antonyms { background:linear-gradient(135deg,#FDECEA,#FFF8EE); }
+  .syn-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:.8rem; }
+  .syn-card {
+    background:var(--white); border-radius:12px; padding:1rem 1.2rem;
+    display:flex; align-items:center; gap:1rem;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+  }
+  .syn-word { font-weight:800; font-size:1rem; min-width:90px; color:var(--red); }
+  .syn-arrow { font-size:1.1rem; color:var(--muted); }
+  .syn-result { font-size:.9rem; color:var(--green); font-weight:700; }
+  .ant-word { color:var(--red); }
+  .ant-result { color:#333; }
+
+  /* ── PARAGRAPHS ──────────────────────── */
+  #paragraphs { background:linear-gradient(135deg,#FFF8EE,#D8F3DC); }
+  .para-card {
+    background:var(--white); border-radius:20px;
+    padding:2rem 2.5rem; margin-bottom:2rem;
+    box-shadow:0 4px 20px rgba(0,0,0,.07);
+    border-top:5px solid;
+    position:relative; overflow:hidden;
+  }
+  .para-card::before {
+    content:attr(data-num);
+    position:absolute; right:1.5rem; top:1rem;
+    font-family:'Playfair Display',serif;
+    font-size:5rem; font-weight:900; line-height:1;
+    opacity:.05; color:var(--text);
+  }
+  .para-card h3 {
+    font-family:'Playfair Display',serif;
+    font-size:1.4rem; margin-bottom:1rem;
+  }
+  .para-card p { font-size:.97rem; line-height:1.85; color:#2c2c3a; }
+  .para-label {
+    display:inline-block; font-size:.72rem; font-weight:800;
+    padding:.2rem .7rem; border-radius:20px; margin-bottom:.8rem;
+    text-transform:uppercase; letter-spacing:.5px;
+  }
+  .label-beg { background:var(--green-light); color:var(--green); }
+  .label-pro { background:#FFF3E0; color:#E65100; }
+  .label-ultra { background:linear-gradient(135deg,#f72585,#7209b7); color:#fff; }
+
+  /* ── RAINBOW DIVIDER ─────────────────── */
+  .rainbow-divider {
+    height:5px;
+    background: linear-gradient(90deg,var(--r1),var(--r2),var(--r3),var(--r4),var(--r5),var(--r6),var(--r7));
+  }
+
+  /* ── FOOTER ──────────────────────────── */
+  footer {
+    background:var(--text); color:#aaa;
+    text-align:center; padding:2rem 1rem;
+    font-size:.85rem;
+  }
+  footer strong { color:var(--gold); }
+
+  /* ── RESPONSIVE ──────────────────────── */
+  @media(max-width:600px) {
+    .para-card { padding:1.5rem 1.2rem; }
+    .idiom-card { flex-direction:column; gap:.5rem; }
+  }
+
+  /* vocab color cycling */
+  .vc1 { border-color:var(--r1); } .vc2 { border-color:var(--r2); }
+  .vc3 { border-color:var(--r3); } .vc4 { border-color:var(--r4); }
+  .vc5 { border-color:var(--r5); } .vc6 { border-color:var(--r6); }
+  .vc7 { border-color:var(--r7); }
+  .pc1{border-color:var(--r1)}.pc2{border-color:var(--r2)}.pc3{border-color:var(--r3)}
+  .pc4{border-color:var(--r4)}.pc5{border-color:var(--r5)}.pc6{border-color:var(--r6)}
+  .pc7{border-color:var(--r7)}.pc8{border-color:#f72585}.pc9{border-color:#7209b7}.pc10{border-color:#4361ee}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">🗣️ Speak English in 30 Days</div>
+  <div class="nav-links">
+    <a href="#levels">📊 Levels</a>
+    <a href="#vocabulary">📖 Vocab</a>
+    <a href="#idioms">💡 Idioms</a>
+    <a href="#phrases">💬 Phrases</a>
+    <a href="#synonyms">🔄 Synonyms</a>
+    <a href="#antonyms">⚡ Antonyms</a>
+    <a href="#paragraphs">📝 Paragraphs</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge-row">
+    <span class="badge badge-b">🟢 Beginner</span>
+    <span class="badge badge-p">🟠 Pro</span>
+    <span class="badge badge-u">🌈 Ultra Pro</span>
+  </div>
+  <h1>Learn <span class="red">Spoken</span><br>English in <span class="green">30 Days</span></h1>
+  <div class="rainbow-bar"></div>
+  <p>Master vocabulary, idioms, phrases, synonyms, antonyms & real paragraphs. Your complete spoken English roadmap — from zero to fluency.</p>
+  <div class="scroll-down">↓ Start Learning ↓</div>
+</div>
+<div class="rainbow-divider"></div>
+
+<!-- LEVELS -->
+<section id="levels">
+  <div class="section-inner">
+    <div class="sec-title">📊 Your Learning Levels</div>
+    <div class="sec-sub">Choose your level and follow the 30-day roadmap</div>
+    <div class="level-tabs">
+      <button class="tab-btn beg active" onclick="showTab('beg')">🟢 Beginner</button>
+      <button class="tab-btn pro" onclick="showTab('pro')">🟠 Pro</button>
+      <button class="tab-btn ultra" onclick="showTab('ultra')">🌈 Ultra Pro</button>
+    </div>
+
+    <!-- BEGINNER -->
+    <div class="level-panel beg active" id="tab-beg">
+      <div class="level-card">
+        <h3 style="color:var(--green)">🟢 Beginner — Days 1–10</h3>
+        <p style="color:var(--muted);margin-bottom:1rem">Start from basics. Learn greetings, simple sentences and 100 common words. Practice daily for 20 minutes.</p>
+        <div class="day-grid">
+          <div class="day-item beg-item"><strong>Day 1–2</strong><span>Greetings & Introductions — Hello, My name is, Nice to meet you</span></div>
+          <div class="day-item beg-item"><strong>Day 3–4</strong><span>Numbers, Days, Months — Basic counting & calendar words</span></div>
+          <div class="day-item beg-item"><strong>Day 5–6</strong><span>Common Verbs — Go, Come, Eat, Sleep, Work, Play, See, Buy</span></div>
+          <div class="day-item beg-item"><strong>Day 7–8</strong><span>Colors, Animals & Objects — Red, Blue, Dog, Table, Chair, Book</span></div>
+          <div class="day-item beg-item"><strong>Day 9–10</strong><span>Simple Sentences — I am, You are, He is, She is, We are going</span></div>
+        </div>
+        <div style="margin-top:1.5rem;padding:1rem;background:var(--green-light);border-radius:12px;">
+          <strong style="color:var(--green)">🎯 Beginner Goal:</strong>
+          <span style="font-size:.9rem;color:var(--muted)"> Speak 5 simple sentences confidently. Use greetings in real life every day. Learn 100 new words.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRO -->
+    <div class="level-panel pro" id="tab-pro">
+      <div class="level-card">
+        <h3 style="color:#E65100">🟠 Pro — Days 11–20</h3>
+        <p style="color:var(--muted);margin-bottom:1rem">Level up with idioms, tense practice, and conversation skills. Practice 30–40 minutes daily.</p>
+        <div class="day-grid">
+          <div class="day-item pro-item"><strong>Day 11–12</strong><span>Past, Present & Future Tense — I went, I go, I will go</span></div>
+          <div class="day-item pro-item"><strong>Day 13–14</strong><span>Asking Questions — What, Why, How, When, Where, Who</span></div>
+          <div class="day-item pro-item"><strong>Day 15–16</strong><span>10 Popular Idioms — Meanings & how to use in conversation</span></div>
+          <div class="day-item pro-item"><strong>Day 17–18</strong><span>Office & Daily Life Phrases — Professional speaking skills</span></div>
+          <div class="day-item pro-item"><strong>Day 19–20</strong><span>Synonyms & Antonyms — Expand your word power rapidly</span></div>
+        </div>
+        <div style="margin-top:1.5rem;padding:1rem;background:#FFF3E0;border-radius:12px;">
+          <strong style="color:#E65100">🎯 Pro Goal:</strong>
+          <span style="font-size:.9rem;color:var(--muted)"> Hold a 3-minute conversation. Use at least 3 idioms naturally. Speak without translating in your mind.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ULTRA PRO -->
+    <div class="level-panel ultra" id="tab-ultra">
+      <div class="level-card">
+        <h3 style="background:linear-gradient(135deg,#f72585,#7209b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent">🌈 Ultra Pro — Days 21–30</h3>
+        <p style="color:var(--muted);margin-bottom:1rem">Master advanced vocabulary, storytelling, debating and fluent speaking. 45–60 minutes daily.</p>
+        <div class="day-grid">
+          <div class="day-item ultra-item"><strong>Day 21–22</strong><span>Advanced Vocabulary — 100+ power words used in real speech</span></div>
+          <div class="day-item ultra-item"><strong>Day 23–24</strong><span>Storytelling — How to narrate events clearly & engagingly</span></div>
+          <div class="day-item ultra-item"><strong>Day 25–26</strong><span>Debate & Opinion — Expressing views, agreeing & disagreeing</span></div>
+          <div class="day-item ultra-item"><strong>Day 27–28</strong><span>Accent & Pronunciation — Stress, rhythm, intonation practice</span></div>
+          <div class="day-item ultra-item"><strong>Day 29–30</strong><span>Full Fluency Test — Record yourself, give a 5-min speech</span></div>
+        </div>
+        <div style="margin-top:1.5rem;padding:1rem;background:linear-gradient(135deg,rgba(247,37,133,.1),rgba(114,9,183,.1));border-radius:12px;border:1px solid rgba(114,9,183,.2);">
+          <strong style="background:linear-gradient(135deg,#f72585,#7209b7);-webkit-background-clip:text;-webkit-text-fill-color:transparent">🎯 Ultra Pro Goal:</strong>
+          <span style="font-size:.9rem;color:var(--muted)"> Speak English fluently for 10 minutes. Think in English. Express complex emotions & ideas clearly.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="rainbow-divider"></div>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <div class="section-inner">
+    <div class="sec-title">📖 Vocabulary — 500 Essential Words</div>
+    <div class="sec-sub">Organized by category for faster learning</div>
+
+    <!-- EMOTIONS -->
+    <div class="cat-title" style="color:var(--r1)">❤️ Emotions & Feelings</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc1">Happy<small>Khush / Prasann</small></div>
+      <div class="vocab-word vc2">Sad<small>Dukhi / Udaas</small></div>
+      <div class="vocab-word vc3">Angry<small>Gusse mein</small></div>
+      <div class="vocab-word vc4">Excited<small>Utsahit</small></div>
+      <div class="vocab-word vc5">Anxious<small>Chintit / Bechain</small></div>
+      <div class="vocab-word vc6">Proud<small>Garv mehsoos karna</small></div>
+      <div class="vocab-word vc7">Lonely<small>Akela mahsoos karna</small></div>
+      <div class="vocab-word vc1">Jealous<small>Irshyalu / Jalan</small></div>
+      <div class="vocab-word vc2">Grateful<small>Aabhari</small></div>
+      <div class="vocab-word vc3">Confident<small>Aatmvishwasi</small></div>
+      <div class="vocab-word vc4">Nervous<small>Ghabraaya hua</small></div>
+      <div class="vocab-word vc5">Inspired<small>Prerit</small></div>
+      <div class="vocab-word vc6">Hopeful<small>Aashavaan</small></div>
+      <div class="vocab-word vc7">Ashamed<small>Sharminda</small></div>
+      <div class="vocab-word vc1">Relieved<small>Rahat mili</small></div>
+      <div class="vocab-word vc2">Disgusted<small>Ghrina mahsoos karna</small></div>
+      <div class="vocab-word vc3">Bored<small>Uktaaya hua</small></div>
+      <div class="vocab-word vc4">Shocked<small>Hairan / Stunned</small></div>
+      <div class="vocab-word vc5">Cheerful<small>Khushmijaaz</small></div>
+      <div class="vocab-word vc6">Miserable<small>Behad dukhi</small></div>
+    </div>
+
+    <!-- NATURE -->
+    <div class="cat-title" style="color:var(--green)">🌿 Nature & Environment</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc4">Mountain<small>Pahad</small></div>
+      <div class="vocab-word vc5">River<small>Nadi</small></div>
+      <div class="vocab-word vc6">Forest<small>Jangal</small></div>
+      <div class="vocab-word vc7">Ocean<small>Mahasagar</small></div>
+      <div class="vocab-word vc4">Breeze<small>Hawaa / Thandi Hawa</small></div>
+      <div class="vocab-word vc5">Storm<small>Toofaan</small></div>
+      <div class="vocab-word vc6">Drought<small>Sukha / Akaal</small></div>
+      <div class="vocab-word vc7">Soil<small>Mitti</small></div>
+      <div class="vocab-word vc4">Horizon<small>Kshitij</small></div>
+      <div class="vocab-word vc5">Waterfall<small>Jharana</small></div>
+      <div class="vocab-word vc6">Desert<small>Registaaan</small></div>
+      <div class="vocab-word vc7">Glacier<small>Himnad</small></div>
+      <div class="vocab-word vc4">Earthquake<small>Bhoochal</small></div>
+      <div class="vocab-word vc5">Harvest<small>Fasal / Katai</small></div>
+      <div class="vocab-word vc6">Canopy<small>Chhatri / Patta-chhaya</small></div>
+      <div class="vocab-word vc7">Meadow<small>Ghaasmaidaan</small></div>
+      <div class="vocab-word vc4">Pebble<small>Kankar</small></div>
+      <div class="vocab-word vc5">Fog<small>Kohra</small></div>
+      <div class="vocab-word vc6">Dew<small>Os</small></div>
+      <div class="vocab-word vc7">Lagoon<small>Khadi</small></div>
+    </div>
+
+    <!-- FOOD -->
+    <div class="cat-title" style="color:var(--r2)">🍛 Food & Taste</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc1">Delicious<small>Swaadisht</small></div>
+      <div class="vocab-word vc2">Spicy<small>Teekha</small></div>
+      <div class="vocab-word vc3">Bland<small>Pheeeka</small></div>
+      <div class="vocab-word vc4">Crispy<small>Karkara</small></div>
+      <div class="vocab-word vc5">Savory<small>Namkeen / Swaadishtha</small></div>
+      <div class="vocab-word vc6">Bitter<small>Kadwa</small></div>
+      <div class="vocab-word vc7">Sweet<small>Meetha</small></div>
+      <div class="vocab-word vc1">Sour<small>Khatta</small></div>
+      <div class="vocab-word vc2">Feast<small>Bhojan / Daawat</small></div>
+      <div class="vocab-word vc3">Appetite<small>Bhook</small></div>
+      <div class="vocab-word vc4">Cuisine<small>Pakwaan / Khana</small></div>
+      <div class="vocab-word vc5">Recipe<small>Nuskha / Vidhi</small></div>
+      <div class="vocab-word vc6">Ingredient<small>Samagri</small></div>
+      <div class="vocab-word vc7">Portion<small>Hissa / Bhaag</small></div>
+      <div class="vocab-word vc1">Nutritious<small>Paushtik</small></div>
+      <div class="vocab-word vc2">Aroma<small>Sugandh / Khushboo</small></div>
+      <div class="vocab-word vc3">Garnish<small>Sajawat</small></div>
+      <div class="vocab-word vc4">Marinate<small>Bhigona</small></div>
+      <div class="vocab-word vc5">Simmer<small>Dhimi aanch par pakana</small></div>
+      <div class="vocab-word vc6">Ferment<small>Khameer uthana</small></div>
+    </div>
+
+    <!-- ACTION VERBS -->
+    <div class="cat-title" style="color:var(--r5)">⚡ Action Verbs</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc1">Achieve<small>Haasil karna</small></div>
+      <div class="vocab-word vc2">Build<small>Banana</small></div>
+      <div class="vocab-word vc3">Create<small>Rachna karna</small></div>
+      <div class="vocab-word vc4">Discover<small>Khojana</small></div>
+      <div class="vocab-word vc5">Encourage<small>Protsaahit karna</small></div>
+      <div class="vocab-word vc6">Flourish<small>Phalna-phoolna</small></div>
+      <div class="vocab-word vc7">Generate<small>Utpann karna</small></div>
+      <div class="vocab-word vc1">Inspire<small>Prerit karna</small></div>
+      <div class="vocab-word vc2">Journey<small>Yatra karna</small></div>
+      <div class="vocab-word vc3">Manage<small>Sambhalna</small></div>
+      <div class="vocab-word vc4">Negotiate<small>Vartaa karna</small></div>
+      <div class="vocab-word vc5">Overcome<small>Paar karna</small></div>
+      <div class="vocab-word vc6">Persist<small>Lagataar koshish karna</small></div>
+      <div class="vocab-word vc7">Reflect<small>Sochna / Vichar karna</small></div>
+      <div class="vocab-word vc1">Struggle<small>Sangharsh karna</small></div>
+      <div class="vocab-word vc2">Transform<small>Badalana / Roop badalana</small></div>
+      <div class="vocab-word vc3">Understand<small>Samajhna</small></div>
+      <div class="vocab-word vc4">Volunteer<small>Sweccha se kaam karna</small></div>
+      <div class="vocab-word vc5">Wander<small>Ghoomna</small></div>
+      <div class="vocab-word vc6">Yield<small>Paidawar / Jhukaana</small></div>
+    </div>
+
+    <!-- PERSONALITY / DESCRIBING PEOPLE -->
+    <div class="cat-title" style="color:var(--r7)">🧠 Personality & Character</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc7">Ambitious<small>Mahattvakaankshi</small></div>
+      <div class="vocab-word vc1">Brave<small>Saahasi</small></div>
+      <div class="vocab-word vc2">Clever<small>Chalaak / Hoshiyaar</small></div>
+      <div class="vocab-word vc3">Dedicated<small>Samarpita</small></div>
+      <div class="vocab-word vc4">Empathetic<small>Dardmand</small></div>
+      <div class="vocab-word vc5">Faithful<small>Vishwaaspaatra</small></div>
+      <div class="vocab-word vc6">Generous<small>Udaar</small></div>
+      <div class="vocab-word vc7">Honest<small>Imaandaar</small></div>
+      <div class="vocab-word vc1">Humble<small>Vinayi</small></div>
+      <div class="vocab-word vc2">Intelligent<small>Buddhimaan</small></div>
+      <div class="vocab-word vc3">Kind<small>Dayaalu</small></div>
+      <div class="vocab-word vc4">Loyal<small>Wafadaar</small></div>
+      <div class="vocab-word vc5">Mature<small>Paripakva</small></div>
+      <div class="vocab-word vc6">Optimistic<small>Aashavadi</small></div>
+      <div class="vocab-word vc7">Patient<small>Sahansheel</small></div>
+      <div class="vocab-word vc1">Reliable<small>Bharosemand</small></div>
+      <div class="vocab-word vc2">Sincere<small>Sachcha</small></div>
+      <div class="vocab-word vc3">Tolerant<small>Sahansheelta</small></div>
+      <div class="vocab-word vc4">Wise<small>Gyaani / Samajhdaar</small></div>
+      <div class="vocab-word vc5">Zealous<small>Uttejit / Josheela</small></div>
+    </div>
+
+    <!-- TECHNOLOGY -->
+    <div class="cat-title" style="color:var(--r3)">💻 Technology & Modern World</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc3">Algorithm<small>Ek set niyam</small></div>
+      <div class="vocab-word vc4">Bandwidth<small>Data transfer capacity</small></div>
+      <div class="vocab-word vc5">Cryptocurrency<small>Digital currency</small></div>
+      <div class="vocab-word vc6">Database<small>Data ka bhandaar</small></div>
+      <div class="vocab-word vc7">Encryption<small>Data ko surakshit karna</small></div>
+      <div class="vocab-word vc1">Firewall<small>Security barrier</small></div>
+      <div class="vocab-word vc2">Interface<small>Interaction surface</small></div>
+      <div class="vocab-word vc3">Malware<small>Nuksaandeh software</small></div>
+      <div class="vocab-word vc4">Network<small>Jaalon ka samuh</small></div>
+      <div class="vocab-word vc5">Platform<small>Service ya app</small></div>
+      <div class="vocab-word vc6">Prototype<small>Pahla model</small></div>
+      <div class="vocab-word vc7">Query<small>Sawal / Khoj</small></div>
+      <div class="vocab-word vc1">Server<small>Data store karne wali machine</small></div>
+      <div class="vocab-word vc2">Upload<small>File bhejana</small></div>
+      <div class="vocab-word vc3">Virtual<small>Kalpanaadhaarit / Online</small></div>
+      <div class="vocab-word vc4">Wireless<small>Bina taaron ke</small></div>
+      <div class="vocab-word vc5">Automation<small>Khud-ba-khud kaam</small></div>
+      <div class="vocab-word vc6">Artificial<small>Naqli / Manav-nirmit</small></div>
+      <div class="vocab-word vc7">Innovation<small>Nayi soch</small></div>
+      <div class="vocab-word vc1">Scalable<small>Bada ho sakne wala</small></div>
+    </div>
+
+    <!-- TRAVEL -->
+    <div class="cat-title" style="color:var(--r6)">✈️ Travel & Places</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc6">Destination<small>Manzil</small></div>
+      <div class="vocab-word vc7">Itinerary<small>Yatra ki yojana</small></div>
+      <div class="vocab-word vc1">Passport<small>Yatra dastaawez</small></div>
+      <div class="vocab-word vc2">Boarding<small>Chadna / Sawari</small></div>
+      <div class="vocab-word vc3">Layover<small>Beech mein rukna</small></div>
+      <div class="vocab-word vc4">Customs<small>Seema shulk</small></div>
+      <div class="vocab-word vc5">Hostel<small>Sasta accommodation</small></div>
+      <div class="vocab-word vc6">Resort<small>Vilaa / Aaram jagah</small></div>
+      <div class="vocab-word vc7">Souvenir<small>Yaadgaar cheez</small></div>
+      <div class="vocab-word vc1">Heritage<small>Dharohar</small></div>
+      <div class="vocab-word vc2">Scenic<small>Sundar drishya wala</small></div>
+      <div class="vocab-word vc3">Expedition<small>Abhiyaan</small></div>
+      <div class="vocab-word vc4">Terrain<small>Bhumi / Kshetra</small></div>
+      <div class="vocab-word vc5">Backpack<small>Peeth par basta</small></div>
+      <div class="vocab-word vc6">Currency<small>Mudra</small></div>
+      <div class="vocab-word vc7">Embassy<small>Dootaavaas</small></div>
+      <div class="vocab-word vc1">Visa<small>Travel permission</small></div>
+      <div class="vocab-word vc2">Landmark<small>Pahchaani jagah</small></div>
+      <div class="vocab-word vc3">Tourism<small>Paryatan</small></div>
+      <div class="vocab-word vc4">Explore<small>Khojana / Ghoomna</small></div>
+    </div>
+
+    <!-- BUSINESS -->
+    <div class="cat-title" style="color:var(--r4)">💼 Business & Career</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc4">Revenue<small>Aay / Kamai</small></div>
+      <div class="vocab-word vc5">Profit<small>Laabh</small></div>
+      <div class="vocab-word vc6">Loss<small>Haani</small></div>
+      <div class="vocab-word vc7">Investment<small>Nivesh</small></div>
+      <div class="vocab-word vc1">Entrepreneur<small>Udyami</small></div>
+      <div class="vocab-word vc2">Client<small>Grahak</small></div>
+      <div class="vocab-word vc3">Proposal<small>Prastav</small></div>
+      <div class="vocab-word vc4">Deadline<small>Samay-seema</small></div>
+      <div class="vocab-word vc5">Commission<small>Dalaali / Hissa</small></div>
+      <div class="vocab-word vc6">Freelance<small>Swatantra kaam</small></div>
+      <div class="vocab-word vc7">Budget<small>Bhajantar / Vyay-seema</small></div>
+      <div class="vocab-word vc1">Strategy<small>Rananiti</small></div>
+      <div class="vocab-word vc2">Competitor<small>Pratidwandwi</small></div>
+      <div class="vocab-word vc3">Brand<small>Pahchaan</small></div>
+      <div class="vocab-word vc4">Marketing<small>Vikraya-prachar</small></div>
+      <div class="vocab-word vc5">Niche<small>Khaas kshetra</small></div>
+      <div class="vocab-word vc6">Launch<small>Shuru karna</small></div>
+      <div class="vocab-word vc7">Mentor<small>Marg-darshak</small></div>
+      <div class="vocab-word vc1">Networking<small>Sampark banana</small></div>
+      <div class="vocab-word vc2">Pitch<small>Prastuti / Baat rakhna</small></div>
+    </div>
+
+    <!-- HEALTH -->
+    <div class="cat-title" style="color:var(--r1)">💪 Health & Fitness</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc1">Stamina<small>Sahansheelata / Energy</small></div>
+      <div class="vocab-word vc2">Metabolism<small>Sharirik prakriya</small></div>
+      <div class="vocab-word vc3">Posture<small>Baithe/khade rehne ka tarika</small></div>
+      <div class="vocab-word vc4">Immunity<small>Rog-pratirodhak shakti</small></div>
+      <div class="vocab-word vc5">Hydrate<small>Paani peena</small></div>
+      <div class="vocab-word vc6">Recovery<small>Theek hona</small></div>
+      <div class="vocab-word vc7">Cardio<small>Dil ki kasrat</small></div>
+      <div class="vocab-word vc1">Endurance<small>Dheeraj / Kshamata</small></div>
+      <div class="vocab-word vc2">Flexibility<small>Lachilapan</small></div>
+      <div class="vocab-word vc3">Nutrition<small>Poshan</small></div>
+      <div class="vocab-word vc4">Calories<small>Urja ki matra</small></div>
+      <div class="vocab-word vc5">Discipline<small>Anushaasan</small></div>
+      <div class="vocab-word vc6">Routine<small>Dainik kram</small></div>
+      <div class="vocab-word vc7">Strength<small>Shakti</small></div>
+      <div class="vocab-word vc1">Mindset<small>Soochne ka tarika</small></div>
+      <div class="vocab-word vc2">Detox<small>Zeher nikalna</small></div>
+      <div class="vocab-word vc3">Protein<small>Ameenotsav</small></div>
+      <div class="vocab-word vc4">Rest<small>Aaram</small></div>
+      <div class="vocab-word vc5">Workout<small>Kasrat / Vyayam</small></div>
+      <div class="vocab-word vc6">Progress<small>Unnati / Agragati</small></div>
+    </div>
+
+    <!-- DESCRIBING THINGS -->
+    <div class="cat-title" style="color:var(--r2)">🎨 Describing Things (Adjectives)</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc2">Enormous<small>Bahut bada</small></div>
+      <div class="vocab-word vc3">Tiny<small>Bahut chota</small></div>
+      <div class="vocab-word vc4">Brilliant<small>Tejasvi / Chamakdaar</small></div>
+      <div class="vocab-word vc5">Dull<small>Pheeeka / Boring</small></div>
+      <div class="vocab-word vc6">Fragile<small>Nazuk</small></div>
+      <div class="vocab-word vc7">Sturdy<small>Mazboot</small></div>
+      <div class="vocab-word vc1">Ancient<small>Prachin</small></div>
+      <div class="vocab-word vc2">Modern<small>Aadhunik</small></div>
+      <div class="vocab-word vc3">Vibrant<small>Rangin / Jeevant</small></div>
+      <div class="vocab-word vc4">Gloomy<small>Udaas / Andhera</small></div>
+      <div class="vocab-word vc5">Transparent<small>Paardarshi</small></div>
+      <div class="vocab-word vc6">Vague<small>Aspasht</small></div>
+      <div class="vocab-word vc7">Precise<small>Sateek</small></div>
+      <div class="vocab-word vc1">Hollow<small>Khokhlaa</small></div>
+      <div class="vocab-word vc2">Dense<small>Ghana</small></div>
+      <div class="vocab-word vc3">Steep<small>Khadi / Dhar</small></div>
+      <div class="vocab-word vc4">Shallow<small>Uthlaa</small></div>
+      <div class="vocab-word vc5">Vivid<small>Spasht / Gehra</small></div>
+      <div class="vocab-word vc6">Massive<small>Vishaalkay</small></div>
+      <div class="vocab-word vc7">Elegant<small>Shaandar / Sushil</small></div>
+    </div>
+
+    <!-- MISCELLANEOUS -->
+    <div class="cat-title" style="color:var(--r5)">🌈 Miscellaneous Power Words</div>
+    <div class="vocab-grid">
+      <div class="vocab-word vc5">Abundance<small>Farawani</small></div>
+      <div class="vocab-word vc6">Consequence<small>Parinaam</small></div>
+      <div class="vocab-word vc7">Dignity<small>Sammaan</small></div>
+      <div class="vocab-word vc1">Empathy<small>Samvedana</small></div>
+      <div class="vocab-word vc2">Fragrance<small>Khushboo</small></div>
+      <div class="vocab-word vc3">Gratitude<small>Aabhaar</small></div>
+      <div class="vocab-word vc4">Harmony<small>Samanvay</small></div>
+      <div class="vocab-word vc5">Identity<small>Pahechan</small></div>
+      <div class="vocab-word vc6">Justice<small>Nyaay</small></div>
+      <div class="vocab-word vc7">Kindness<small>Dayaa</small></div>
+      <div class="vocab-word vc1">Legacy<small>Virasat</small></div>
+      <div class="vocab-word vc2">Miracle<small>Chamatkaar</small></div>
+      <div class="vocab-word vc3">Nostalgia<small>Purani yaadein</small></div>
+      <div class="vocab-word vc4">Opportunity<small>Awasar</small></div>
+      <div class="vocab-word vc5">Passion<small>Junoon</small></div>
+      <div class="vocab-word vc6">Resilience<small>Uth khada hona</small></div>
+      <div class="vocab-word vc7">Sacrifice<small>Tyaag</small></div>
+      <div class="vocab-word vc1">Triumph<small>Vijay</small></div>
+      <div class="vocab-word vc2">Unique<small>Anokha</small></div>
+      <div class="vocab-word vc3">Vision<small>Drishtikon</small></div>
+    </div>
+
+  </div>
+</section>
+<div class="rainbow-divider"></div>
+
+<!-- IDIOMS -->
+<section id="idioms">
+  <div class="section-inner">
+    <div class="sec-title">💡 25 Must-Know Idioms</div>
+    <div class="sec-sub">Learn these and sound like a native speaker!</div>
+
+    <div class="idiom-card"><span class="idiom-num">#01</span><div><h4>Break the ice</h4><p>Meaning: Uncomfortable situation ko shuru karna ya dosti banana. <em>Example: He told a joke to break the ice at the party.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#02</span><div><h4>Hit the nail on the head</h4><p>Meaning: Bilkul sahi baat kehna. <em>Example: You hit the nail on the head — that's exactly the problem.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#03</span><div><h4>Bite the bullet</h4><p>Meaning: Mushkil situation ko himmat se face karna. <em>Example: I bit the bullet and went to the dentist.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#04</span><div><h4>Under the weather</h4><p>Meaning: Bimaar ya thoda kharab mahsoos karna. <em>Example: I'm feeling a bit under the weather today.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#05</span><div><h4>Once in a blue moon</h4><p>Meaning: Bahut hi kum baar. <em>Example: She visits us once in a blue moon.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#06</span><div><h4>Burn bridges</h4><p>Meaning: Rishte hamesha ke liye khatam karna. <em>Example: Don't burn bridges with your old employer.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#07</span><div><h4>The ball is in your court</h4><p>Meaning: Ab decision lena tumhare upar hai. <em>Example: I've made my offer. The ball is in your court.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#08</span><div><h4>Spill the beans</h4><p>Meaning: Koi raaz bata dena. <em>Example: Who spilled the beans about the surprise party?</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#09</span><div><h4>Kill two birds with one stone</h4><p>Meaning: Ek kaam se do kaam nikalna. <em>Example: I'll kill two birds with one stone and meet him at the gym.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#10</span><div><h4>Costs an arm and a leg</h4><p>Meaning: Bahut mahanga. <em>Example: That phone costs an arm and a leg!</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#11</span><div><h4>Hit the books</h4><p>Meaning: Padhna shuru karna. <em>Example: Exams are near — I need to hit the books.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#12</span><div><h4>Piece of cake</h4><p>Meaning: Bahut aasaan kaam. <em>Example: The test was a piece of cake.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#13</span><div><h4>Let the cat out of the bag</h4><p>Meaning: Galti se secret reveal karna. <em>Example: She let the cat out of the bag about the promotion.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#14</span><div><h4>Sit on the fence</h4><p>Meaning: Koi bhi side na lena. <em>Example: Stop sitting on the fence and make a decision.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#15</span><div><h4>Actions speak louder than words</h4><p>Meaning: Baaton se zyada kaam karna zaroori hai. <em>Example: Show me results — actions speak louder than words.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#16</span><div><h4>Jump on the bandwagon</h4><p>Meaning: Trend follow karna. <em>Example: Everyone jumped on the bandwagon and started using AI.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#17</span><div><h4>Bite off more than you can chew</h4><p>Meaning: Apni aukaat se zyada kaam lena. <em>Example: He bit off more than he could chew with 5 projects at once.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#18</span><div><h4>A blessing in disguise</h4><p>Meaning: Jo bura lage par acha nikle. <em>Example: Losing that job was a blessing in disguise.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#19</span><div><h4>Burn the midnight oil</h4><p>Meaning: Raat bhar kaam karna ya padhna. <em>Example: She burned the midnight oil to finish the project.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#20</span><div><h4>Cut corners</h4><p>Meaning: Kaam mein shortkut lena. <em>Example: Don't cut corners on quality.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#21</span><div><h4>Speak of the devil</h4><p>Meaning: Jis ka zikr ho wahi aa jaye. <em>Example: Speak of the devil — here comes Rahul!</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#22</span><div><h4>On the tip of my tongue</h4><p>Meaning: Kuch yaad karne ki koshish karna par yaad na aana. <em>Example: His name is on the tip of my tongue.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#23</span><div><h4>Get out of hand</h4><p>Meaning: Situation control se bahar ho jaana. <em>Example: The argument got out of hand quickly.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#24</span><div><h4>Miss the boat</h4><p>Meaning: Mauka chook jaana. <em>Example: If you don't apply now, you'll miss the boat.</em></p></div></div>
+    <div class="idiom-card"><span class="idiom-num">#25</span><div><h4>Straight from the horse's mouth</h4><p>Meaning: Seedha original source se. <em>Example: I heard it straight from the horse's mouth.</em></p></div></div>
+  </div>
+</section>
+<div class="rainbow-divider"></div>
+
+<!-- PHRASES -->
+<section id="phrases">
+  <div class="section-inner">
+    <div class="sec-title">💬 30 Essential Spoken Phrases</div>
+    <div class="sec-sub">Use these daily — they make you sound natural & confident</div>
+    <div class="phrase-grid">
+      <div class="phrase-card pc1"><h4>Could you say that again?</h4><p>Kya aap dobara bol sakte hain?</p><div class="example">"I'm sorry, could you say that again? I didn't catch it."</div></div>
+      <div class="phrase-card pc2"><h4>I'm not sure about that.</h4><p>Mujhe is baare mein pakka pata nahi.</p><div class="example">"I'm not sure about that — let me check."</div></div>
+      <div class="phrase-card pc3"><h4>That makes sense.</h4><p>Yeh samajh aa gaya / Yeh mantikpurn hai.</p><div class="example">"Oh that makes sense now, thank you!"</div></div>
+      <div class="phrase-card pc4"><h4>I couldn't agree more.</h4><p>Main bilkul agree karta hoon.</p><div class="example">"You're right, I couldn't agree more!"</div></div>
+      <div class="phrase-card pc5"><h4>What do you mean by that?</h4><p>Aapka matlab kya hai?</p><div class="example">"What do you mean by that exactly?"</div></div>
+      <div class="phrase-card pc6"><h4>To be honest...</h4><p>Sachchi baat toh yeh hai...</p><div class="example">"To be honest, I think we need more time."</div></div>
+      <div class="phrase-card pc7"><h4>As far as I know...</h4><p>Jahan tak mujhe pata hai...</p><div class="example">"As far as I know, the shop closes at 8."</div></div>
+      <div class="phrase-card pc8"><h4>I see where you're coming from.</h4><p>Main samajh sakta hoon aap kya keh rahe ho.</p><div class="example">"I see where you're coming from, but I disagree."</div></div>
+      <div class="phrase-card pc9"><h4>Let me think about it.</h4><p>Mujhe sochne do.</p><div class="example">"That's a good offer. Let me think about it."</div></div>
+      <div class="phrase-card pc10"><h4>It depends on...</h4><p>Yeh nirbhar karta hai...</p><div class="example">"It depends on the budget we have."</div></div>
+      <div class="phrase-card pc1"><h4>In my opinion...</h4><p>Mere vichaar mein...</p><div class="example">"In my opinion, hard work beats talent."</div></div>
+      <div class="phrase-card pc2"><h4>Don't worry about it.</h4><p>Chinta mat karo.</p><div class="example">"Hey, don't worry about it — mistakes happen."</div></div>
+      <div class="phrase-card pc3"><h4>You've got a point.</h4><p>Tumhara point sahi hai.</p><div class="example">"You've got a point — we should reconsider."</div></div>
+      <div class="phrase-card pc4"><h4>Keep up the good work!</h4><p>Achha kaam karte raho!</p><div class="example">"Your results are amazing — keep up the good work!"</div></div>
+      <div class="phrase-card pc5"><h4>I'll look into it.</h4><p>Main is par dhyan dunga.</p><div class="example">"I'll look into it and get back to you."</div></div>
+      <div class="phrase-card pc6"><h4>Long story short...</h4><p>Mukhtasar mein...</p><div class="example">"Long story short, we lost the deal."</div></div>
+      <div class="phrase-card pc7"><h4>Can I ask you something?</h4><p>Kya main aapse kuch pooch sakta hoon?</p><div class="example">"Can I ask you something personal?"</div></div>
+      <div class="phrase-card pc8"><h4>That's a good point.</h4><p>Yeh ek achha vichar hai.</p><div class="example">"That's a good point — I hadn't thought of that."</div></div>
+      <div class="phrase-card pc9"><h4>Let's get started.</h4><p>Chaliye shuru karte hain.</p><div class="example">"Everyone is here — let's get started!"</div></div>
+      <div class="phrase-card pc10"><h4>I'll get back to you.</h4><p>Main aapko baad mein bataata hoon.</p><div class="example">"I'll get back to you by tomorrow morning."</div></div>
+      <div class="phrase-card pc1"><h4>On the other hand...</h4><p>Doosri taraf se dekha jaye toh...</p><div class="example">"On the other hand, staying is also risky."</div></div>
+      <div class="phrase-card pc2"><h4>That's exactly what I meant.</h4><p>Bilkul yahi mera matlab tha.</p><div class="example">"Yes! That's exactly what I meant."</div></div>
+      <div class="phrase-card pc3"><h4>I really appreciate it.</h4><p>Main sach mein aabhaari hoon.</p><div class="example">"I really appreciate your help today."</div></div>
+      <div class="phrase-card pc4"><h4>Feel free to ask.</h4><p>Jhijhak mat, poochho.</p><div class="example">"If you have any doubt, feel free to ask."</div></div>
+      <div class="phrase-card pc5"><h4>At the end of the day...</h4><p>Aakhir mein toh...</p><div class="example">"At the end of the day, results matter."</div></div>
+      <div class="phrase-card pc6"><h4>Can you give me an example?</h4><p>Kya aap mujhe ek udaaharan de sakte hain?</p><div class="example">"I'm not clear. Can you give me an example?"</div></div>
+      <div class="phrase-card pc7"><h4>It goes without saying...</h4><p>Yeh toh kehne ki zarurat hi nahi...</p><div class="example">"It goes without saying that honesty is key."</div></div>
+      <div class="phrase-card pc8"><h4>What's on your mind?</h4><p>Kya soch rahe ho?</p><div class="example">"You seem distracted. What's on your mind?"</div></div>
+      <div class="phrase-card pc9"><h4>I'm looking forward to it.</h4><p>Mujhe iska intezaar hai.</p><div class="example">"The trip sounds amazing. I'm looking forward to it!"</div></div>
+      <div class="phrase-card pc10"><h4>Take it easy!</h4><p>Relax karo / Dhire dhire karo.</p><div class="example">"You've worked hard enough today. Take it easy!"</div></div>
+    </div>
+  </div>
+</section>
+<div class="rainbow-divider"></div>
+
+<!-- SYNONYMS -->
+<section id="synonyms">
+  <div class="section-inner">
+    <div class="sec-title">🔄 Synonyms — Same Meaning, New Word</div>
+    <div class="sec-sub">Use synonyms to avoid repeating the same words. Sounds more fluent!</div>
+    <div class="syn-grid">
+      <div class="syn-card"><span class="syn-word">Happy</span><span class="syn-arrow">→</span><span class="syn-result">Joyful, Delighted, Elated, Glad</span></div>
+      <div class="syn-card"><span class="syn-word">Sad</span><span class="syn-arrow">→</span><span class="syn-result">Miserable, Gloomy, Sorrowful, Dejected</span></div>
+      <div class="syn-card"><span class="syn-word">Big</span><span class="syn-arrow">→</span><span class="syn-result">Enormous, Huge, Vast, Massive, Grand</span></div>
+      <div class="syn-card"><span class="syn-word">Small</span><span class="syn-arrow">→</span><span class="syn-result">Tiny, Petite, Miniature, Little</span></div>
+      <div class="syn-card"><span class="syn-word">Fast</span><span class="syn-arrow">→</span><span class="syn-result">Swift, Rapid, Quick, Speedy</span></div>
+      <div class="syn-card"><span class="syn-word">Slow</span><span class="syn-arrow">→</span><span class="syn-result">Sluggish, Gradual, Leisurely, Languid</span></div>
+      <div class="syn-card"><span class="syn-word">Brave</span><span class="syn-arrow">→</span><span class="syn-result">Courageous, Bold, Daring, Fearless</span></div>
+      <div class="syn-card"><span class="syn-word">Angry</span><span class="syn-arrow">→</span><span class="syn-result">Furious, Irritated, Enraged, Livid</span></div>
+      <div class="syn-card"><span class="syn-word">Smart</span><span class="syn-arrow">→</span><span class="syn-result">Intelligent, Clever, Brilliant, Sharp</span></div>
+      <div class="syn-card"><span class="syn-word">Beautiful</span><span class="syn-arrow">→</span><span class="syn-result">Gorgeous, Stunning, Lovely, Elegant</span></div>
+      <div class="syn-card"><span class="syn-word">Rich</span><span class="syn-arrow">→</span><span class="syn-result">Wealthy, Affluent, Prosperous, Opulent</span></div>
+      <div class="syn-card"><span class="syn-word">Poor</span><span class="syn-arrow">→</span><span class="syn-result">Needy, Destitute, Impoverished, Broke</span></div>
+      <div class="syn-card"><span class="syn-word">Start</span><span class="syn-arrow">→</span><span class="syn-result">Begin, Commence, Launch, Initiate</span></div>
+      <div class="syn-card"><span class="syn-word">End</span><span class="syn-arrow">→</span><span class="syn-result">Finish, Conclude, Terminate, Wrap up</span></div>
+      <div class="syn-card"><span class="syn-word">Important</span><span class="syn-arrow">→</span><span class="syn-result">Crucial, Vital, Significant, Essential</span></div>
+      <div class="syn-card"><span class="syn-word">Difficult</span><span class="syn-arrow">→</span><span class="syn-result">Challenging, Tough, Arduous, Demanding</span></div>
+      <div class="syn-card"><span class="syn-word">Easy</span><span class="syn-arrow">→</span><span class="syn-result">Simple, Effortless, Straightforward</span></div>
+      <div class="syn-card"><span class="syn-word">Help</span><span class="syn-arrow">→</span><span class="syn-result">Assist, Support, Aid, Guide</span></div>
+      <div class="syn-card"><span class="syn-word">Show</span><span class="syn-arrow">→</span><span class="syn-result">Display, Demonstrate, Reveal, Exhibit</span></div>
+      <div class="syn-card"><span class="syn-word">Think</span><span class="syn-arrow">→</span><span class="syn-result">Consider, Ponder, Reflect, Contemplate</span></div>
+      <div class="syn-card"><span class="syn-word">Walk</span><span class="syn-arrow">→</span><span class="syn-result">Stroll, March, Stride, Wander, Trek</span></div>
+      <div class="syn-card"><span class="syn-word">Talk</span><span class="syn-arrow">→</span><span class="syn-result">Speak, Chat, Converse, Discuss, Say</span></div>
+      <div class="syn-card"><span class="syn-word">Look</span><span class="syn-arrow">→</span><span class="syn-result">Observe, Glance, Gaze, Stare, Peek</span></div>
+      <div class="syn-card"><span class="syn-word">Want</span><span class="syn-arrow">→</span><span class="syn-result">Desire, Wish, Crave, Yearn, Hope for</span></div>
+      <div class="syn-card"><span class="syn-word">Make</span><span class="syn-arrow">→</span><span class="syn-result">Create, Build, Produce, Construct, Form</span></div>
+      <div class="syn-card"><span class="syn-word">Know</span><span class="syn-arrow">→</span><span class="syn-result">Understand, Realise, Comprehend, Grasp</span></div>
+      <div class="syn-card"><span class="syn-word">Old</span><span class="syn-arrow">→</span><span class="syn-result">Ancient, Aged, Antique, Elderly, Vintage</span></div>
+      <div class="syn-card"><span class="syn-word">New</span><span class="syn-arrow">→</span><span class="syn-result">Fresh, Recent, Novel, Current, Modern</span></div>
+      <div class="syn-card"><span class="syn-word">Strange</span><span class="syn-arrow">→</span><span class="syn-result">Weird, Odd, Peculiar, Unusual, Bizarre</span></div>
+      <div class="syn-card"><span class="syn-word">Calm</span><span class="syn-arrow">→</span><span class="syn-result">Peaceful, Serene, Tranquil, Composed</span></div>
+    </div>
+  </div>
+</section>
+<div class="rainbow-divider"></div>
+
+<!-- ANTONYMS -->
+<section id="antonyms">
+  <div class="section-inner">
+    <div class="sec-title">⚡ Antonyms — Opposite Words</div>
+    <div class="sec-sub">Learn both sides — double your vocabulary instantly!</div>
+    <div class="syn-grid">
+      <div class="syn-card"><span class="ant-word syn-word">Love</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Hate</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Day</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Night</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Success</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Failure</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Begin</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">End</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Courage</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Cowardice</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Honest</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Dishonest</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Positive</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Negative</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Accept</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Reject</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Strong</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Weak</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Light</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Dark / Heavy</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Question</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Answer</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Build</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Destroy</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Trust</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Doubt</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Early</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Late</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Lend</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Borrow</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Busy</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Free / Idle</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Unite</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Divide</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Save</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Spend / Waste</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Remember</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Forget</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Awake</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Asleep</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Arrive</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Depart / Leave</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Expand</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Contract / Shrink</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Victory</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Defeat</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Encourage</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Discourage</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Sharp</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Dull / Blunt</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Deep</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Shallow</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Smooth</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Rough</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Permanent</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Temporary</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Generous</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Selfish / Stingy</span></div>
+      <div class="syn-card"><span class="ant-word syn-word">Visible</span><span class="syn-arrow">↔</span><span class="ant-result syn-result">Invisible / Hidden</span></div>
+    </div>
+  </div>
+</section>
+<div class="rainbow-divider"></div>
+
+<!-- PARAGRAPHS -->
+<section id="paragraphs">
+  <div class="section-inner">
+    <div class="sec-title">📝 10 Reading Paragraphs</div>
+    <div class="sec-sub">Read aloud daily — train your tongue, ears and mind together</div>
+
+    <div class="para-card" data-num="01" style="border-color:var(--r1)">
+      <span class="para-label label-beg">🟢 Beginner</span>
+      <h3>My Daily Routine</h3>
+      <p>Every day, I wake up at six o'clock in the morning. First, I brush my teeth and wash my face with cold water. Then I drink a glass of water before eating breakfast. My breakfast is usually bread with butter and a cup of tea. After that, I get dressed and go to school or work. During the day, I try to learn something new. In the evening, I go for a walk and spend time with my family. At night, I read a book for thirty minutes before sleeping. I believe that a good routine helps me stay healthy and productive. Sleeping on time and waking up early are two habits that changed my life completely. I also try to drink eight glasses of water each day. Exercise is another important part of my routine. Even a short walk of twenty minutes makes me feel more energetic. I think that small habits, done every single day, lead to very big changes over time. A disciplined daily routine is the foundation of a successful life.</p>
+    </div>
+
+    <div class="para-card" data-num="02" style="border-color:var(--r2)">
+      <span class="para-label label-beg">🟢 Beginner</span>
+      <h3>My Favourite Season</h3>
+      <p>My favourite season is winter. During winter, the weather becomes cool and pleasant. I love wearing warm clothes like sweaters and jackets. The mornings are foggy and beautiful. Sometimes there is dew on the grass, which makes everything look fresh and clean. In winter, I enjoy sitting near a warm fire with a cup of hot tea. The nights are long and peaceful. I sleep very well during winter. Food also tastes better in the cold — hot soup, roasted corn, and spicy pakoras are my favourites. Festivals like Makar Sankranti and Republic Day also come during winter, which adds to the joy. Winter evenings are perfect for spending time with family. We sit together, tell stories, and laugh. I feel that winter teaches us to slow down, appreciate warmth, and enjoy the simple things in life. Even though some people prefer summer, I truly believe winter is the most beautiful season of the year.</p>
+    </div>
+
+    <div class="para-card" data-num="03" style="border-color:var(--r3)">
+      <span class="para-label label-pro">🟠 Pro</span>
+      <h3>The Power of Education</h3>
+      <p>Education is the most powerful tool that any person can possess. It opens doors that would otherwise remain closed forever. In today's competitive world, knowledge is not just a privilege — it is a necessity. A good education teaches us more than facts and formulas; it develops critical thinking, creativity, and the ability to solve problems. It shapes our character and helps us make better decisions in life. When we are educated, we can communicate effectively, understand different perspectives, and contribute meaningfully to society. However, education does not only happen inside a classroom. Life itself is a great teacher. Every failure, every challenge, every conversation adds to our understanding of the world. The best learners are those who never stop being curious — those who ask questions, seek answers, and remain open to new ideas throughout their lives. A truly educated person is humble, because they know how much they still have to learn. Education empowers individuals, uplifts communities, and drives the progress of entire nations. It is the bridge between poverty and prosperity, between ignorance and awareness. Let us, therefore, never take education for granted and always strive to learn something new every single day.</p>
+    </div>
+
+    <div class="para-card" data-num="04" style="border-color:var(--r4)">
+      <span class="para-label label-pro">🟠 Pro</span>
+      <h3>Technology and Modern Life</h3>
+      <p>Technology has completely transformed the way we live, work, and communicate. Just a few decades ago, sending a letter could take weeks. Today, we can send a message to someone on the other side of the world in seconds. Smartphones, the internet, and artificial intelligence have made our lives faster, smarter, and more connected than ever before. Work that once required a team of people can now be done by a single individual using the right tools. Online education has made knowledge accessible to millions who could not afford traditional schools or colleges. Healthcare has improved dramatically with advanced medical equipment and telemedicine. Farmers in rural areas now receive weather forecasts and market prices directly on their phones, helping them make better decisions. However, technology also comes with its own set of challenges. Excessive screen time, cybercrime, misinformation, and job displacement due to automation are real concerns that society must address thoughtfully. The key is to use technology as a servant, not become its slave. Those who learn to use technology wisely — to create, to learn, to solve problems — will have a tremendous advantage in the modern world. Technology is just a tool; what matters most is the intention and intelligence behind its use.</p>
+    </div>
+
+    <div class="para-card" data-num="05" style="border-color:var(--r5)">
+      <span class="para-label label-pro">🟠 Pro</span>
+      <h3>The Importance of Physical Fitness</h3>
+      <p>Physical fitness is not just about having a good-looking body — it is about building a strong, healthy, and energetic life. Our bodies are our most important assets. Without good health, all the wealth, success, and achievements in the world mean very little. Regular exercise improves cardiovascular health, strengthens muscles, boosts immunity, and greatly enhances mental well-being. Research consistently shows that physically active people experience lower rates of depression, anxiety, and stress. Exercise releases endorphins — chemicals in the brain that create feelings of happiness and euphoria. Even a simple thirty-minute walk every day can dramatically improve your mood, energy levels, and productivity. Many successful entrepreneurs, leaders, and athletes attribute much of their success to their physical discipline. They understand that the body and mind are deeply connected. When your body is strong, your mind becomes sharper, more resilient, and more focused. Fitness is not a destination — it is a lifelong journey. You do not need an expensive gym membership or fancy equipment. Push-ups, squats, running, yoga — these require nothing but consistency and commitment. The hardest part is always the beginning. But once you build the habit of daily exercise, it becomes a non-negotiable part of your identity. Invest in your health today, and it will pay dividends for the rest of your life.</p>
+    </div>
+
+    <div class="para-card" data-num="06" style="border-color:var(--r6)">
+      <span class="para-label label-ultra">🌈 Ultra Pro</span>
+      <h3>The Psychology of Habits</h3>
+      <p>Habits are the invisible architecture of daily life. According to researchers, nearly forty to fifty percent of our actions every day are not deliberate decisions but automatic habits. This is both a startling and empowering realisation — because it means that by intentionally designing our habits, we can effectively design the trajectory of our lives. The brain loves habits because they save energy. Once a behaviour becomes habitual, the brain no longer needs to engage its prefrontal cortex — the region responsible for decision-making — and can operate on autopilot. This neurological efficiency is why habits are so hard to break and equally hard to form. The habit loop, as popularised by Charles Duhigg, consists of three elements: the cue, the routine, and the reward. Understanding this loop allows us to consciously rewire our behaviour. To build a new habit, attach it to an existing cue and immediately follow it with a satisfying reward. To break a bad habit, identify its cue and replace the destructive routine with a healthier one while preserving the reward. James Clear, in his acclaimed book Atomic Habits, argues that identity drives behaviour. Instead of saying "I want to run daily," say "I am a runner." This identity-based approach makes habits far more durable and deeply embedded. The compound effect of small, consistent habits is extraordinary — just one percent improvement daily leads to being thirty-seven times better in a year. In the long game of life, your habits will determine your destiny more than your talent, your circumstances, or your luck ever will.</p>
+    </div>
+
+    <div class="para-card" data-num="07" style="border-color:var(--r7)">
+      <span class="para-label label-ultra">🌈 Ultra Pro</span>
+      <h3>Entrepreneurship in the Digital Age</h3>
+      <p>The digital age has fundamentally democratised entrepreneurship in ways that previous generations could scarcely imagine. A teenager with a smartphone and an internet connection now has access to tools, markets, and audiences that were once the exclusive privilege of large corporations with massive capital. E-commerce platforms, freelancing marketplaces, social media, artificial intelligence tools, and cloud computing have collectively reduced the barriers to entry to near zero. Today, a compelling idea, combined with relentless execution and strategic use of digital tools, is sufficient to build a thriving business from scratch — regardless of geography, social background, or formal education. Dropshipping, content creation, SaaS products, digital services, and affiliate marketing are just a few of the countless business models available to aspiring entrepreneurs. However, the abundance of opportunity also brings an unprecedented level of competition. Standing out in a saturated digital landscape requires genuine value creation, deep understanding of your target audience, consistent branding, and the patience to build trust over time. The most successful digital entrepreneurs share several common traits: they are voracious learners who continuously update their skills; they are resilient in the face of inevitable setbacks; they understand that distribution and marketing are often more important than the product itself; and they build systems — rather than relying on raw effort alone. Entrepreneurship in the digital age is not a shortcut to wealth; it is a rigorous, deeply fulfilling, and endlessly educational pursuit that rewards those who combine creativity with discipline and vision with action.</p>
+    </div>
+
+    <div class="para-card" data-num="08" style="border-color:var(--r1)">
+      <span class="para-label label-ultra">🌈 Ultra Pro</span>
+      <h3>Climate Change — A Global Emergency</h3>
+      <p>Climate change is no longer a distant, abstract threat confined to the pages of scientific journals — it is an unfolding global emergency with profound and accelerating consequences for every living being on this planet. The scientific consensus is unequivocal: human activities, primarily the burning of fossil fuels, deforestation, and industrial agriculture, have caused a sharp rise in greenhouse gas concentrations in the atmosphere. This has led to a measurable increase in global average temperatures, with 2023 and 2024 recording the hottest years in human history. The downstream effects are both diverse and devastating — from the intensification of hurricanes, wildfires, and floods to the melting of polar ice caps, rising sea levels that threaten coastal cities and island nations, disruption of agricultural systems, and the extinction of countless plant and animal species. The communities least responsible for carbon emissions — the rural poor, indigenous peoples, and developing nations — are paradoxically among the most severely affected. Addressing climate change demands coordinated, ambitious action at every level: governments must implement bold carbon pricing policies and accelerate the transition to renewable energy; corporations must embed sustainability into their core business strategies; and individuals must critically examine their consumption patterns. But beyond systemic change, what climate action requires most is a profound shift in consciousness — a recognition that human prosperity is not separate from the health of the natural world, but entirely and irreversibly dependent upon it. The choices made in this decade will echo across centuries. The time for incremental measures has long passed. What the moment demands is transformative courage.</p>
+    </div>
+
+    <div class="para-card" data-num="09" style="border-color:var(--r4)">
+      <span class="para-label label-ultra">🌈 Ultra Pro</span>
+      <h3>The Art of Communication</h3>
+      <p>Communication is the single most consequential skill a human being can develop. It underpins every relationship, every negotiation, every leadership act, and every creative collaboration. Yet it remains profoundly misunderstood — reduced, in popular imagination, to mere eloquence or verbal fluency. True communication is far more complex, nuanced, and multidimensional than the words we speak. Research by psychologist Albert Mehrabian suggests that words account for only seven percent of the emotional impact of a message, while tone of voice contributes thirty-eight percent and body language a remarkable fifty-five percent. This means that the most articulate speaker, if delivering their message with closed body language, a monotone voice, or averted eye contact, will fail to connect with their audience. Effective communicators are, first and foremost, extraordinary listeners. They listen not merely to respond, but to genuinely understand — they read between the lines, pick up on emotional undercurrents, and create space for others to feel truly heard. Empathy is the invisible infrastructure of great communication. The ability to perspective-take — to inhabit another person's worldview long enough to understand their feelings and motivations — is what separates transactional exchange from genuine connection. In a world increasingly mediated by screens and social media, where nuance is sacrificed for brevity and complexity is flattened into soundbites, the capacity for deep, deliberate, empathetic communication is rarer and more valuable than ever before. Cultivate it relentlessly. It will serve you in every dimension of your life.</p>
+    </div>
+
+    <div class="para-card" data-num="10" style="border-color:var(--green)">
+      <span class="para-label label-ultra">🌈 Ultra Pro</span>
+      <h3>The Journey of Self-Discovery</h3>
+      <p>Among all the journeys a human being can undertake, perhaps none is more profound, more challenging, or more ultimately rewarding than the journey inward — the journey of self-discovery. It begins with a deceptively simple question: Who am I? Yet this question, when pursued with genuine honesty and sustained curiosity, unravels into a labyrinth of complexity. We are, most of us, largely strangers to ourselves. We walk through life wearing masks — performing identities shaped by family expectations, cultural conditioning, social pressure, and the incessant noise of a world that profits from our insecurity. Self-discovery requires the courage to remove those masks and confront what lies beneath, even when what we find is uncomfortable or does not align with the self-image we have carefully constructed. It demands radical honesty about our strengths and limitations, our patterns of behaviour, our deepest fears, and our most authentic desires. Practices such as journaling, meditation, therapy, meaningful conversations, solitude, travel, and voracious reading all serve as mirrors — reflecting back to us dimensions of our inner landscape that we may never otherwise encounter. The philosophers of ancient Greece inscribed above the Temple of Apollo the immortal injunction: "Know thyself." Thousands of years of human civilisation have not diminished the relevance of this command. In fact, in an era of relentless distraction and algorithmic manipulation of attention, the capacity for genuine self-knowledge may be more urgent than ever. For it is only when we truly know ourselves — our values, our purpose, our non-negotiables — that we can live not by default, but by deliberate, courageous, and deeply personal design.</p>
+    </div>
+
+  </div>
+</section>
+<div class="rainbow-divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <p style="font-size:1.1rem;margin-bottom:.5rem">🌟 <strong>Speak English in 30 Days</strong> 🌟</p>
+  <p>Read daily · Practice aloud · Never stop learning</p>
+  <p style="margin-top:.5rem;opacity:.6;font-size:.8rem">Designed with ❤️ for every learner | All levels covered</p>
+</footer>
+
+<script>
+  function showTab(tab) {
+    document.querySelectorAll('.level-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>
